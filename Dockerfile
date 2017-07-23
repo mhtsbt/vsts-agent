@@ -43,4 +43,4 @@ RUN mkdir -p "/root/.microsoft/Team Foundation/4.0/Configuration/TEE-Mementos" \
 
 RUN apt-get update && apt-get install -y --no-install-recommends software-properties-common && apt-add-repository ppa:git-core/ppa && apt-get update && apt-get install -y --no-install-recommends curl git jq libcurl3 libicu55 libunwind8 && curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && apt-get install -y --no-install-recommends git-lfs && rm -rf /var/lib/apt/lists/*
 
-CMD ["./bin/Agent.Listener configure --unattended --agent "${VSTS_AGENT:-$(hostname)}" --url "https://$VSTS_ACCOUNT.visualstudio.com" --auth PAT --token "$VSTS_TOKEN" --pool "${VSTS_POOL:-Default}" --work "${VSTS_WORK:-_work}" --replace & wait $! && ./bin/Agent.Listener run & wait $!"]
+CMD ["./bin/Agent.Listener configure --unattended --agent \"${VSTS_AGENT:-$(hostname)}\" --url \"https://$VSTS_ACCOUNT.visualstudio.com\" --auth PAT --token \"$VSTS_TOKEN\" --pool \"${VSTS_POOL:-Default}\" --work \"${VSTS_WORK:-_work}\" --replace & wait $! && ./bin/Agent.Listener run & wait $!"]
