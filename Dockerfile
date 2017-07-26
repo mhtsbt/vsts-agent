@@ -46,4 +46,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends software-proper
 COPY ./start.sh .
 RUN chmod +x start.sh
 
-CMD ["./start.sh"]
+
+CMD "./start.sh"
