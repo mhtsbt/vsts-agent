@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 
 RUN apt-get update
-RUN apt-get install -y apt-transport-https wget ca-certificates curl software-properties-common git nodejs npm
+RUN apt-get install -y apt-transport-https wget ca-certificates curl software-properties-common git
 
 # install docker
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
@@ -42,6 +42,9 @@ RUN mkdir -p "/root/.microsoft/Team Foundation/4.0/Configuration/TEE-Mementos" \
  && echo '<ProductIdData><eula-14.0 value="true"/></ProductIdData>' > "com.microsoft.tfs.client.productid.xml"
 
 RUN apt-get update && apt-get install -y --no-install-recommends software-properties-common && apt-add-repository ppa:git-core/ppa && apt-get update && apt-get install -y --no-install-recommends curl git jq libcurl3 libicu55 libunwind8 && curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && apt-get install -y --no-install-recommends git-lfs && rm -rf /var/lib/apt/lists/*
+
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
+RUN apt-get install -y nodejs
 
 COPY ./start.sh .
 RUN chmod +x start.sh
