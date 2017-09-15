@@ -17,7 +17,7 @@ RUN sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 RUN apt-get update
 
-RUN apt-get install -y dotnet-dev-1.0.4
+RUN apt-get install -y dotnet-sdk-2.0.0
 
 # install vsts
 RUN mkdir /vsts && cd /vsts
