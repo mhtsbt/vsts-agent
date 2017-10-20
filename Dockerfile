@@ -51,4 +51,4 @@ RUN rm ./libicu55_55.1-7ubuntu0.2_amd64.deb
 COPY ./start.sh .
 RUN chmod +x start.sh
 
-CMD bash
+CMD "./start.sh"
