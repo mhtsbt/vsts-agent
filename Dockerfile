@@ -25,8 +25,8 @@ RUN mkdir /vsts && cd /vsts
 
 WORKDIR /vsts
 
-RUN wget https://github.com/Microsoft/vsts-agent/releases/download/v2.119.1/vsts-agent-ubuntu.14.04-x64-2.119.1.tar.gz
-RUN tar xvf vsts-agent-ubuntu.14.04-x64-2.119.1.tar.gz
+RUN wget https://github.com/Microsoft/vsts-agent/releases/download/v2.123.0/vsts-agent-ubuntu.16.04-x64-2.123.0.tar.gz
+RUN tar xvf vsts-agent-ubuntu.16.04-x64-2.123.0.tar.gz
 
 RUN useradd vsts
 
@@ -51,4 +51,4 @@ RUN rm ./libicu55_55.1-7ubuntu0.2_amd64.deb
 COPY ./start.sh .
 RUN chmod +x start.sh
 
-CMD "./start.sh"
+CMD bash
