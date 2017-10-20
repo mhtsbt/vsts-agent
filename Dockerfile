@@ -12,9 +12,6 @@ RUN apt-get update
 # get ubuntu packages
 RUN apt-get install -y docker-ce
 
-#RUN wget http://security.ubuntu.com/ubuntu/pool/main/i/icu/libicu52_52.1-3ubuntu0.6_amd64.deb
-#RUN dpkg -i libicu52_52.1-3ubuntu0.6_amd64.deb
-
 # install dotnet
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 RUN mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
@@ -47,7 +44,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends software-proper
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
 RUN apt-get install -y nodejs
 
-#RUN ln -s /usr/bin/nodejs /usr/bin/node
+RUN wget http://security.ubuntu.com/ubuntu/pool/main/i/icu/libicu55_55.1-7ubuntu0.2_amd64.deb
+RUN dpkg -i ./libicu55_55.1-7ubuntu0.2_amd64.deb
+RUN rm ./libicu55_55.1-7ubuntu0.2_amd64.deb
 
 COPY ./start.sh .
 RUN chmod +x start.sh
